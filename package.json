@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/geremih/react-native-circular-action-menu/issues"
   },
-  "homepage": "https://github.com/geremih/react-native-circular-action-menu"
+  "homepage": "https://github.com/geremih/react-native-circular-action-menu",
+  "dependencies": {
+    "prop-types": "^15.6.1"
+  }
 }
