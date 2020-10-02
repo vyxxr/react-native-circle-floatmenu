@@ -19,6 +19,13 @@
     "arc-menu",
     "satellite-menu"
   ],
+  "files": [
+    "README.md",
+    "package.json",
+    "LICENSE",
+    "ActionButtonItem.js",
+    "ActionButton.js"
+  ],
   "peerDependencies": {
     "react-native": ">=0.11"
   },
