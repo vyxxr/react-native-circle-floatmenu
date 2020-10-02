@@ -4,13 +4,13 @@
 
 ![react-native-circular-action-menu demo](http://i.giphy.com/3o6Zt6hNHOd3kVx4aY.gif)
 
-### Installation
+## Installation
 
 ```bash
 npm i react-native-circular-action-menu --save
 ```
 
-### Usage
+## Usage
 
 First, require it from your app's JavaScript files with:
 
@@ -18,11 +18,11 @@ First, require it from your app's JavaScript files with:
 import ActionButton from 'react-native-circular-action-menu';
 ```
 
-##### ActionButton
+### ActionButton
 
 `ActionButton` component is the main component which wraps everything and provides a couple of props (see Config below).
 
-##### ActionButton.Item
+### ActionButton.Item
 
 `ActionButton.Item` specifies an Action Button. You have to include at least 1 `ActionButton.Item`.
 
@@ -96,7 +96,7 @@ Also this example uses `react-native-vector-icons` for the button Icons.
 
 ### Configuration
 
-##### ActionButton:
+#### ActionButton
 
 | Property       |   Type    |      Default      | Description                                                                                                                                                                                                                |
 | -------------- | :-------: | :---------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -115,7 +115,7 @@ Also this example uses `react-native-vector-icons` for the button Icons.
 | backdrop       | Component |       false       | Custom component for use as Backdrop (i.e. [BlurView](https://github.com/react-native-fellowship/react-native-blur#blur-view), [VibrancyView](https://github.com/react-native-fellowship/react-native-blur#vibrancy-view)) |
 | degrees        |  number   |        135        | degrees to rotate icon                                                                                                                                                                                                     |
 
-##### ActionButton.Item:
+#### ActionButton.Item
 
 | Property    |  Type  |     Default      | Description                                             |
 | ----------- | :----: | :--------------: | ------------------------------------------------------- |
