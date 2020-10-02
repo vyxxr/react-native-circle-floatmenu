@@ -22,7 +22,7 @@
   "peerDependencies": {
     "react-native": ">=0.11"
   },
-  "author": "Carlos Curiel",
+  "author": "Carlos Curiel <deadkuriel@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/DeadKuriel/react-native-circle-floatmenu/issues"
