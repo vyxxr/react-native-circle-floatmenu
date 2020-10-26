@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
-export default class ActionButtonItem extends Component {
+export default class CircleButtonItem extends Component {
 
   render() {
     const offsetX = this.props.radius * Math.cos(this.props.angle);
@@ -46,7 +46,7 @@ export default class ActionButtonItem extends Component {
       >
         <TouchableOpacity style={{flex:1}} activeOpacity={this.props.activeOpacity || 0.85} onPress={this.props.onPress}>
           <View
-            style={[styles.actionButton,{
+            style={[styles.circleButton,{
               width: this.props.size,
               height: this.props.size,
               borderRadius: this.props.size / 2,
@@ -62,7 +62,7 @@ export default class ActionButtonItem extends Component {
 
 }
 
-ActionButtonItem.propTypes = {
+CircleButtonItem.propTypes = {
   angle: PropTypes.number,
   radius: PropTypes.number,
   buttonColor: PropTypes.string,
@@ -72,14 +72,14 @@ ActionButtonItem.propTypes = {
   endDegree: PropTypes.number,
 };
 
-ActionButtonItem.defaultProps = {
+CircleButtonItem.defaultProps = {
   onPress: () => {},
   startDegree: 0,
   endDegree: 720
 };
 
 const styles = StyleSheet.create({
-  actionButton: {
+  circleButton: {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',

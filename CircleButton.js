@@ -8,7 +8,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import PropTypes from "prop-types";
-import ActionButtonItem from "./ActionButtonItem";
+import CircleButtonItem from "./CircleButtonItem";
 
 const alignMap = {
   topcenter: {
@@ -53,7 +53,7 @@ const alignMap = {
   },
 };
 
-export default class ActionButton extends Component {
+export default class CircleButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,7 +68,7 @@ export default class ActionButton extends Component {
     clearTimeout(this.timeout);
   }
 
-  getActionButtonStyle() {
+  getCircleButtonStyle() {
     return [styles.actionBarItem, this.getButtonSize()];
   }
 
@@ -123,7 +123,7 @@ export default class ActionButton extends Component {
 
   renderButton() {
     return (
-      <View style={this.getActionButtonStyle()}>
+      <View style={this.getCircleButtonStyle()}>
         <TouchableOpacity
           activeOpacity={0.85}
           onLongPress={this.props.onLongPress}
@@ -212,7 +212,7 @@ export default class ActionButton extends Component {
     return React.Children.map(this.props.children, (button, index) => {
       return (
         <View pointerEvents="box-none" style={this.getActionContainerStyle()}>
-          <ActionButtonItem
+          <CircleButtonItem
             key={index}
             position={this.props.position}
             anim={this.state.anim}
@@ -271,9 +271,9 @@ export default class ActionButton extends Component {
   }
 }
 
-ActionButton.Item = ActionButtonItem;
+CircleButton.Item = CircleButtonItem;
 
-ActionButton.propTypes = {
+CircleButton.propTypes = {
   active: PropTypes.bool,
   bgColor: PropTypes.string,
   buttonColor: PropTypes.string,
@@ -298,7 +298,7 @@ ActionButton.propTypes = {
   ]),
 };
 
-ActionButton.defaultProps = {
+CircleButton.defaultProps = {
   active: false,
   bgColor: "transparent",
   buttonColor: "rgba(0,0,0,1)",

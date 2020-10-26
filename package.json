@@ -1,6 +1,6 @@
 {
   "name": "react-native-circle-floatmenu",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Path-esque circular action menu inspired by react-native-circular-action-menu.",
   "main": "CircleButton.js",
   "scripts": {
@@ -23,8 +23,8 @@
     "README.md",
     "package.json",
     "LICENSE",
-    "ActionButtonItem.js",
-    "ActionButton.js"
+    "CircleButtonItem.js",
+    "CircleButton.js"
   ],
   "peerDependencies": {
     "react-native": ">=0.11"
