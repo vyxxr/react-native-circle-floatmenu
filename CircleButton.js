@@ -69,21 +69,21 @@ export default class CircleButton extends Component {
   }
 
   getCircleButtonStyle() {
-    return [styles.actionBarItem, this.getButtonSize()];
+    return [styles.circleBarItem, this.getButtonSize()];
   }
 
-  getActionContainerStyle() {
+  getCircleContainerStyle() {
     const { alignItems, justifyContent } = alignMap[this.props.position];
     return [
       styles.overlay,
-      styles.actionContainer,
+      styles.circleContainer,
       {
         alignItems,
         justifyContent,
       },
     ];
   }
-  getActionsStyle() {
+  getCirclesStyle() {
     return [this.getButtonSize()];
   }
 
@@ -194,7 +194,7 @@ export default class CircleButton extends Component {
     );
   }
 
-  renderActions() {
+  renderCircles() {
     if (!this.state.active) return null;
     const startDegree =
       this.props.startDegree || alignMap[this.props.position].startDegree;
@@ -211,7 +211,7 @@ export default class CircleButton extends Component {
 
     return React.Children.map(this.props.children, (button, index) => {
       return (
-        <View pointerEvents="box-none" style={this.getActionContainerStyle()}>
+        <View pointerEvents="box-none" style={this.getCircleContainerStyle()}>
           <CircleButtonItem
             key={index}
             position={this.props.position}
@@ -262,8 +262,8 @@ export default class CircleButton extends Component {
       <View pointerEvents="box-none" style={styles.overlay}>
         {backdrop}
 
-        {this.props.children && this.renderActions()}
-        <View pointerEvents="box-none" style={this.getActionContainerStyle()}>
+        {this.props.children && this.renderCircles()}
+        <View pointerEvents="box-none" style={this.getCircleContainerStyle()}>
           {this.renderButton()}
         </View>
       </View>
@@ -326,11 +326,11 @@ const styles = StyleSheet.create({
     top: 0,
     backgroundColor: "transparent",
   },
-  actionContainer: {
+  circleContainer: {
     flexDirection: "column",
     padding: 10,
   },
-  actionBarItem: {
+  circleBarItem: {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "transparent",
