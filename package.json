@@ -1,14 +1,14 @@
 {
   "name": "react-native-circle-floatmenu",
   "version": "0.0.1",
-  "description": "customizable circular action menu component for react-native",
-  "main": "ActionButton.js",
+  "description": "Path-esque circular action menu inspired by react-native-circular-action-menu.",
+  "main": "CircleButton.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DeadKuriel/react-native-circle-floatmenu.git"
+    "url": "git+https://github.com/DeadKuriel/react-native-circle-floatmenu.git"
   },
   "keywords": [
     "react-native",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/DeadKuriel/react-native-circle-floatmenu/issues"
   },
-  "homepage": "https://github.com/DeadKuriel/react-native-circle-floatmenu",
+  "homepage": "https://github.com/DeadKuriel/react-native-circle-floatmenu#readme",
   "dependencies": {
     "prop-types": "^15.6.1"
   }
