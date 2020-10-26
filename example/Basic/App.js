@@ -1,76 +1,75 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
+ * Sample React Native App for react-native-circle-floatmenu
+ * https://github.com/deadkuriel/react-native-circle-floatmenu
  */
 
 import React from 'react';
 import {
   StyleSheet,
   View,
-  Text,
 } from 'react-native';
-
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
 
 import CircleButton from "react-native-circle-floatmenu";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-const App: () => React$Node = () => {
+const App = () => {
   return (
     <View style={styles.btn_container}>
-      <CircleButton buttonColor="rgba(0,0,0,1)" position="topleft">
+          <CircleButton buttonColor="rgba(0,0,0,1)" position="topleft">
             <CircleButton.Item
               position="absolute"
               buttonColor="#000"
               title="Perfil"
-              onPress={console.log("BtnPress")}
+              onPress={() => console.log("BtnPress")}
             >
               <Icon
                 name="card-account-details"
-                style={styles.actionButtonIcon}
+                style={styles.circleButtonIcon}
               />
             </CircleButton.Item>
             <CircleButton.Item
               position="absolute"
               buttonColor="#000"
               title="Perfil"
-              onPress={console.log("BtnPress")}
+              onPress={() => console.log("BtnPress")}
             >
-              <Icon name="bookmark-outline" style={styles.actionButtonIcon} />
+              <Icon name="bookmark-outline" style={styles.circleButtonIcon} />
             </CircleButton.Item>
             <CircleButton.Item
               position="absolute"
               buttonColor="#000"
               title="Perfil"
-              onPress={console.log("BtnPress")}
+              onPress={() => console.log("BtnPress")}
             >
-              <Icon name="briefcase-outline" style={styles.actionButtonIcon} />
+              <Icon
+                name="briefcase-outline"
+                style={styles.circleButtonIcon}
+              />
             </CircleButton.Item>
             <CircleButton.Item
               position="absolute"
               buttonColor="#000"
               title="Perfil"
-              onPress={console.log("BtnPress")}
+              onPress={() => console.log("BtnPress")}
             >
-              <Icon name="reply" style={styles.actionButtonIcon} />
+              <Icon
+                name="reply"
+                style={styles.circleButtonIcon}
+              />
             </CircleButton.Item>
             <CircleButton.Item
+              position="absolute"
               buttonColor="#000"
-              title="Salir"
-              onPress={console.log("BtnPress")}
+              title="Perfil"
+              onPress={() => console.log("BtnPress")}
             >
-              <Icon name="power-standby" style={styles.actionButtonIcon} />
+              <Icon
+                name="power-standby"
+                style={styles.circleButtonIcon}
+              />
             </CircleButton.Item>
           </CircleButton>
-
     </View>
-
-
   );
 };
 
@@ -84,49 +83,10 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 1,
   },
-  actionButtonIcon: {
+  circleButtonIcon: {
     fontSize: 20,
     height: 22,
     color: "white",
-  },
-
-
-
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
   },
 });
 
