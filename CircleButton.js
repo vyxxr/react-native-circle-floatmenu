@@ -4,6 +4,7 @@ import {
   Text,
   View,
   Animated,
+  Platform,
   TouchableOpacity,
   TouchableWithoutFeedback,
 } from "react-native";
@@ -374,8 +375,10 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
   },
   btnText: {
-    marginTop: -4,
+    marginTop: Platform.select({ios: 0, android: -4}),
+    textAlign: 'center',
     fontSize: 24,
+    lineHeight: Platform.select({ios: 25.5, android: null}),
     backgroundColor: "transparent",
     position: "relative",
   },
