@@ -109,6 +109,7 @@ Also this example uses `react-native-vector-icons` for the button Icons.
 | position       |  string   |     "center"      | one of: `left` `center` `right` `topleft` `topcenter` `topright` `midleft` and `midright` |
 | radius         |  number   |        100        | radius of menu |
 | useNativeDriver | boolean  |       false       | if true, color and background will use neither `btnOutRangeTxt` nor `btnOutRange` |
+| size           |  number   |         63        | set the button size |
 | bgColor        |  string   |   "transparent"   | color of overlay when ActionButtons are visible |
 | buttonColor    |  string   |  "rgba(0,0,0,1)"  | background color of the +Button **(must be rgba value!)** |
 | btnOutRange    |  string   | props.buttonColor | button background color to animate to |
