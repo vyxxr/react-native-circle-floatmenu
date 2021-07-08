@@ -51,6 +51,20 @@ const alignMap = {
     startDegree: 180,
     endDegree: 270,
   },
+
+  midleft: {
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    startDegree: -90,
+    endDegree: 90,
+  },
+
+  midright: {
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    startDegree: 270,
+    endDegree: 90,
+  },
 };
 
 export default class CircleButton extends Component {
@@ -103,7 +117,7 @@ export default class CircleButton extends Component {
     Animated.spring(this.state.anim, {
       toValue: 1,
       duration: 250,
-      useNativeDriver: false,
+      useNativeDriver: this.props.useNativeDriver,
     }).start();
 
     this.setState({ active: true });
@@ -113,7 +127,7 @@ export default class CircleButton extends Component {
     Animated.spring(this.state.anim, {
       toValue: 0,
       duration: 250,
-      useNativeDriver: false,
+      useNativeDriver: this.props.useNativeDriver,
     }).start();
 
     setTimeout(() => {
@@ -141,7 +155,7 @@ export default class CircleButton extends Component {
                 width: this.props.size,
                 height: this.props.size,
                 borderRadius: this.props.size / 2,
-                backgroundColor: this.state.anim.interpolate({
+                backgroundColor: this.props.useNativeDriver ? this.props.buttonColor : this.state.anim.interpolate({
                   inputRange: [0, 1],
                   outputRange: [this.props.buttonColor, this.props.btnOutRange],
                 }),
@@ -174,24 +188,33 @@ export default class CircleButton extends Component {
       return this.props.icon;
     }
 
-    return (
-      <Animated.Text
-        style={[
-          styles.btnText,
-          {
-            color: this.state.anim.interpolate({
-              inputRange: [0, 1],
-              outputRange: [
-                this.props.buttonTextColor,
-                this.props.btnOutRangeTxt,
-              ],
-            }),
-          },
-        ]}
-      >
-        +
-      </Animated.Text>
-    );
+    if (this.props.useNativeDriver) {
+      return (
+        <Text style={{...styles.btnText, color: this.props.buttonTextColor}}>
+          +
+        </Text>
+      );
+    } else {
+      return (
+        <Animated.Text
+          style={[
+            styles.btnText,
+            {
+              color: this.state.anim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [
+                  this.props.buttonTextColor,
+                  this.props.btnOutRangeTxt,
+                ],
+              }),
+            },
+          ]}
+        >
+          +
+        </Animated.Text>
+      );
+    }
+
   }
 
   renderCircles() {
@@ -281,6 +304,7 @@ CircleButton.propTypes = {
   size: PropTypes.number,
   itemSize: PropTypes.number,
   autoInactive: PropTypes.bool,
+  useNativeDriver: PropTypes.bool,
   onPress: PropTypes.func,
   onOverlayPress: PropTypes.func,
   backdrop: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
@@ -293,14 +317,17 @@ CircleButton.propTypes = {
     "center",
     "right",
     "topleft",
-    "tpocenter",
+    "topcenter",
     "topright",
+    "midleft",
+    "midright"
   ]),
 };
 
 CircleButton.defaultProps = {
   active: false,
   bgColor: "transparent",
+  useNativeDriver: false,
   buttonColor: "rgba(0,0,0,1)",
   buttonTextColor: "rgba(255,255,255,1)",
   position: "center",
