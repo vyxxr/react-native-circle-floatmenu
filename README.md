@@ -1,13 +1,16 @@
-# react-native-circular-action-menu
+# react-native-circle-floatmenu
 
 [Geremih´s](https://github.com/geremih/react-native-circular-action-menu) Path-esque circular action menu inspired by [CircularFloatingActionMenu](https://github.com/oguzbilgener/CircularFloatingActionMenu) modified and tested on RN_0.63 by Kur.
 
 ![react-native-circular-action-menu demo](http://i.giphy.com/3o6Zt6hNHOd3kVx4aY.gif)
 
 ## Installation
-
 ```bash
-npm i react-native-circular-action-menu --save
+yarn add https://github.com/vyxxr/react-native-circle-floatmenu.git
+```
+or
+```bash
+npm i https://github.com/vyxxr/react-native-circle-floatmenu.git --save
 ```
 
 ## Usage
@@ -15,7 +18,7 @@ npm i react-native-circular-action-menu --save
 First, require it from your app's JavaScript files with:
 
 ```bash
-import ActionButton from 'react-native-circular-action-menu';
+import ActionButton from 'react-native-circle-floatmenu';
 ```
 
 ### ActionButton
@@ -31,11 +34,12 @@ import ActionButton from 'react-native-circular-action-menu';
 _The following Basic example can be found in `example/Basic`._
 
 ```js
-import React, { Component, StyleSheet, View } from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, View } from "react-native";
 import ActionButton from "react-native-circular-action-menu";
 import Icon from "react-native-vector-icons/Ionicons";
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: "#f3f3f3" }}>
@@ -80,7 +84,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-This will create a floating Button in the bottom right corner with 3 action buttons.
+This will create a floating Button in the bottom center with 3 action buttons.
 Also this example uses `react-native-vector-icons` for the button Icons.
 
 ### FAB Example
@@ -98,22 +102,23 @@ Also this example uses `react-native-vector-icons` for the button Icons.
 
 #### ActionButton
 
-| Property       |   Type    |      Default      | Description                                                                                                                                                                                                                |
-| -------------- | :-------: | :---------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| active         |  boolean  |       false       | action buttons visible or not                                                                                                                                                                                              |
-| autoInactive   |  boolean  |       true        | Auto hide ActionButtons when ActionButton.Item is pressed.                                                                                                                                                                 |
-| position       |  string   |     "center"      | one of: `left` `center` `right` `topleft` `topcenter` and `topright`                                                                                                                                                       |
-| radius         |  number   |        100        | radius of menu                                                                                                                                                                                                             |
-| bgColor        |  string   |   "transparent"   | color of overlay when ActionButtons are visible                                                                                                                                                                            |
-| buttonColor    |  string   |  "rgba(0,0,0,1)"  | background color of the +Button **(must be rgba value!)**                                                                                                                                                                  |
-| btnOutRange    |  string   | props.buttonColor | button background color to animate to                                                                                                                                                                                      |
-| outRangeScale  |  number   |         1         | changes size of button during animation                                                                                                                                                                                    |
-| onPress        | function  |       null        | fires, when ActionButton is tapped                                                                                                                                                                                         |
-| onLongPress    | function  |       null        | fires, when ActionButton is long pressed                                                                                                                                                                                   |
-| onOverlayPress | function  |       null        | fires, when Overlay is pressed                                                                                                                                                                                             |
-| icon           | Component |         +         | Custom component for ActionButton Icon                                                                                                                                                                                     |
+| Property       |   Type    |      Default      | Description |
+| -------------- | :-------: | :---------------: | ------------------- |
+| active         |  boolean  |       false       | action buttons visible or not |
+| autoInactive   |  boolean  |       true        | Auto hide ActionButtons when ActionButton.Item is pressed. |
+| position       |  string   |     "center"      | one of: `left` `center` `right` `topleft` `topcenter` `topright` `midleft` and `midright` |
+| radius         |  number   |        100        | radius of menu |
+| useNativeDriver | boolean  |       false       | if true, color and background will use neither `btnOutRangeTxt` nor `btnOutRange` |
+| bgColor        |  string   |   "transparent"   | color of overlay when ActionButtons are visible |
+| buttonColor    |  string   |  "rgba(0,0,0,1)"  | background color of the +Button **(must be rgba value!)** |
+| btnOutRange    |  string   | props.buttonColor | button background color to animate to |
+| outRangeScale  |  number   |         1         | changes size of button during animation |
+| onPress        | function  |       null        | fires, when ActionButton is tapped |
+| onLongPress    | function  |       null        | fires, when ActionButton is long pressed |
+| onOverlayPress | function  |       null        | fires, when Overlay is pressed |
+| icon           | Component |         +         | Custom component for ActionButton Icon |
 | backdrop       | Component |       false       | Custom component for use as Backdrop (i.e. [BlurView](https://github.com/react-native-fellowship/react-native-blur#blur-view), [VibrancyView](https://github.com/react-native-fellowship/react-native-blur#vibrancy-view)) |
-| degrees        |  number   |        135        | degrees to rotate icon                                                                                                                                                                                                     |
+| degrees        |  number   |        135        | degrees to rotate icon |
 
 #### ActionButton.Item
 
