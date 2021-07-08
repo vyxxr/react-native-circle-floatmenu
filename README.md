@@ -36,7 +36,7 @@ _The following Basic example can be found in `example/Basic`._
 ```js
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
-import ActionButton from "react-native-circular-action-menu";
+import ActionButton from "react-native-circle-floatmenu";
 import Icon from "react-native-vector-icons/Ionicons";
 
 export default class App extends Component {
