@@ -84,14 +84,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     paddingTop: 2,
-    shadowOpacity: 0.3,
+    backgroundColor: 'red',
+    position: 'absolute',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 1,
     },
-    shadowColor: '#444',
-    shadowRadius: 1,
-    backgroundColor: 'red',
-    position: 'absolute',
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    
+    elevation: 3,
   },
 });

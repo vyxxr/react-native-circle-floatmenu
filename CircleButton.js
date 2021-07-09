@@ -366,13 +366,15 @@ const styles = StyleSheet.create({
   btn: {
     justifyContent: "center",
     alignItems: "center",
-    shadowOpacity: 0.3,
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 1,
     },
-    shadowColor: "#444",
-    shadowRadius: 1,
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    
+    elevation: 3,
   },
   btnText: {
     marginTop: Platform.select({ios: 0, android: -4}),
