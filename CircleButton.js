@@ -96,6 +96,7 @@ export default class CircleButton extends Component {
         alignItems,
         justifyContent,
       },
+      this.props.containerStyle
     ];
   }
   getCirclesStyle() {
@@ -175,6 +176,7 @@ export default class CircleButton extends Component {
                   },
                 ],
               },
+              this.props.style,
             ]}
           >
             {this.renderButtonIcon()}
@@ -313,6 +315,8 @@ CircleButton.propTypes = {
   endDegree: PropTypes.number,
   radius: PropTypes.number,
   children: PropTypes.node,
+  style: PropTypes.object,
+  containerStyle: PropTypes.object,
   position: PropTypes.oneOf([
     "left",
     "center",
@@ -343,6 +347,8 @@ CircleButton.defaultProps = {
   radius: 100,
   btnOutRange: "rgba(0,0,0,1)",
   btnOutRangeTxt: "rgba(255,255,255,1)",
+  style: {},
+  containerStyle: {}
 };
 
 const styles = StyleSheet.create({
