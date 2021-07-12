@@ -285,7 +285,10 @@ export default class CircleButton extends Component {
       );
     }
     return (
-      <View pointerEvents="box-none" style={styles.overlay}>
+      <View pointerEvents="box-none" style={[
+        styles.overlay,
+        this.props.stayAbove && {zIndex: 150}
+        ]}>
         {backdrop}
 
         {this.props.children && this.renderCircles()}
@@ -317,6 +320,7 @@ CircleButton.propTypes = {
   children: PropTypes.node,
   style: PropTypes.object,
   containerStyle: PropTypes.object,
+  stayAbove: PropTypes.bool,
   position: PropTypes.oneOf([
     "left",
     "center",
@@ -348,7 +352,8 @@ CircleButton.defaultProps = {
   btnOutRange: "rgba(0,0,0,1)",
   btnOutRangeTxt: "rgba(255,255,255,1)",
   style: {},
-  containerStyle: {}
+  containerStyle: {},
+  stayAbove: false
 };
 
 const styles = StyleSheet.create({
