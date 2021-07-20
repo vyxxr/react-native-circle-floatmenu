@@ -5,7 +5,7 @@ import {
   View,
   Animated,
   Platform,
-  TouchableOpacity,
+  Pressable,
   TouchableWithoutFeedback,
 } from "react-native";
 import PropTypes from "prop-types";
@@ -73,6 +73,7 @@ export default class CircleButton extends Component {
     super(props);
     this.state = {
       active: props.active,
+      animating: false,
       anim: new Animated.Value(props.active ? 1 : 0),
     };
 
@@ -122,7 +123,7 @@ export default class CircleButton extends Component {
       useNativeDriver: this.props.useNativeDriver,
     }).start();
 
-    this.setState({ active: true });
+    this.setState({ active: true, animating: false });
   }
 
   reset() {
@@ -133,20 +134,24 @@ export default class CircleButton extends Component {
     }).start();
 
     setTimeout(() => {
-      this.setState({ active: false });
+      this.setState({ active: false, animating: false });
     }, 250);
   }
 
   renderButton() {
     return (
       <View style={this.getCircleButtonStyle()}>
-        <TouchableOpacity
+        <Pressable
           activeOpacity={0.85}
           onLongPress={this.props.onLongPress}
           onPress={() => {
-            this.props.onPress();
-            if (this.props.children) {
-              this.animateButton();
+            if (!this.state.animating) {
+              this.setState({animating: true}, () => {
+                this.props.onPress();
+                if (this.props.children) {
+                  this.animateButton();
+                }
+              })
             }
           }}
         >
@@ -181,7 +186,7 @@ export default class CircleButton extends Component {
           >
             {this.renderButtonIcon()}
           </Animated.View>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     );
   }
