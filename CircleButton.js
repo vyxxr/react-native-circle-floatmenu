@@ -76,12 +76,6 @@ export default class CircleButton extends Component {
       animating: false,
       anim: new Animated.Value(props.active ? 1 : 0),
     };
-
-    this.timeout = null;
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.timeout);
   }
 
   getCircleButtonStyle() {
@@ -117,13 +111,14 @@ export default class CircleButton extends Component {
       return;
     }
 
-    Animated.spring(this.state.anim, {
-      toValue: 1,
-      duration: 250,
-      useNativeDriver: this.props.useNativeDriver,
-    }).start();
+    this.setState({ active: true, animating: false }, () => {
+      Animated.spring(this.state.anim, {
+        toValue: 1,
+        duration: 250,
+        useNativeDriver: this.props.useNativeDriver,
+      }).start();
+    });
 
-    this.setState({ active: true, animating: false });
   }
 
   reset() {
@@ -131,11 +126,9 @@ export default class CircleButton extends Component {
       toValue: 0,
       duration: 250,
       useNativeDriver: this.props.useNativeDriver,
-    }).start();
-
-    setTimeout(() => {
+    }).start(() => {
       this.setState({ active: false, animating: false });
-    }, 250);
+    });
   }
 
   renderButton() {
@@ -254,9 +247,7 @@ export default class CircleButton extends Component {
             {...button.props}
             onPress={() => {
               if (this.props.autoInactive) {
-                this.timeout = setTimeout(() => {
-                  this.reset();
-                }, 200);
+                this.reset();
               }
               button.props.onPress();
             }}
@@ -273,8 +264,14 @@ export default class CircleButton extends Component {
         <TouchableWithoutFeedback
           style={styles.overlay}
           onPress={() => {
-            this.reset();
-            this.props.onOverlayPress();
+            if (!this.state.animating) {
+              this.setState({animating: true}, () => {
+                if (this.props.children) {
+                  this.reset();
+                }
+                this.props.onOverlayPress();
+              })
+            }
           }}
         >
           <Animated.View
